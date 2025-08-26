@@ -129,7 +129,7 @@ Did you know NormalNvim was the first Neovim distro to ship a compiler that [sup
 * Let's try to improve the user experience of the toggle keys under `<space>u` where possible.
 * Let's contribute to eldritch.nvim so markdown support is as good as the one we had on tokyonight.
 
-### Cool ideas 
+### Cool ideas
 * Given all modern GPUs for consumers are now AI capable, let's re-study the possibility of making easier for users running local AI models. Considering Cloud services will still be necessary for android devices.
 * Let's start preparing NormalNvim v5.0
 
@@ -137,7 +137,7 @@ Did you know NormalNvim was the first Neovim distro to ship a compiler that [sup
 * It would be a neat UX improvement to integrate [snacks.nvim UI toggles](https://github.com/folke/snacks.nvim/blob/main/docs/toggle.md). But let's ensure code remain decoupled.
 * Compiler.nvim: test windows support.
 * Compiler.nvim: add support for justfiles and taskfiles.
-* Makeit.nvim: Add support for justfiles and taskfiles. 
+* Makeit.nvim: Add support for justfiles and taskfiles.
 * Makeit.nvim: Remove orchestrators. This only make sense for compiler.nvim.
 * Makeit.nvim: Allow all possible conventions for `Makefile`, such as `makefile`, `Makefile.linux`, etc.
 * Compiler.nvim: Allow all possible conventions for `Makefile`, such as `makefile`, `Makefile.linux`, etc.

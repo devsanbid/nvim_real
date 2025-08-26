@@ -547,16 +547,6 @@ if vim.fn.executable "gitui" == 1 then -- if gitui exists, show it
   }
 end
 
--- file browsers ------------------------------------
--- yazi
-if is_available("yazi.nvim") and vim.fn.executable("yazi") == 1 then
-  maps.n["<leader>r"] = {
-    -- TODO: use 'Yazi toggle' instead once yazi v0.4.0 is released.
-    "<cmd>Yazi<CR>",
-    desc = "File browser",
-  }
-end
-
 -- neotree
 if is_available("neo-tree.nvim") then
   maps.n["<leader>e"] = { "<cmd>Neotree toggle<cr>", desc = "Neotree" }
@@ -657,42 +647,6 @@ end
 if is_available("aerial.nvim") then
   maps.n["<leader>i"] =
   { function() require("aerial").toggle() end, desc = "Aerial" }
-end
-
--- letee-calltree.nvimm ------------------------------------------------------------
-if is_available("litee-calltree.nvim") then
-  -- For every buffer, look for the one with filetype "calltree" and focus it.
-  local calltree_delay = 1500 -- first run? wait a bit longer.
-  local function focus_calltree()
-    -- Note: No go to the previous cursor position, press ctrl+i / ctrl+o
-    vim.defer_fn(function()
-      for _, win in ipairs(vim.api.nvim_list_wins()) do
-        local buf = vim.api.nvim_win_get_buf(win)
-        local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
-
-        if ft == "calltree" then
-          vim.api.nvim_set_current_win(win)
-          return true
-        end
-      end
-    end, calltree_delay)
-    calltree_delay = 100
-  end
-  maps.n["gj"] = {
-    function()
-      vim.lsp.buf.incoming_calls()
-      focus_calltree()
-    end,
-    desc = "Call tree (incoming)"
-  }
-  maps.n["gJ"] =
-  {
-    function()
-      vim.lsp.buf.outgoing_calls()
-      focus_calltree()
-    end,
-    desc = "Call tree (outgoing)"
-  }
 end
 
 
@@ -896,6 +850,7 @@ if is_available("telescope.nvim") then
     }
   end
 
+
   -- extra - undotree
   if is_available("telescope-undo.nvim") then
     maps.n["<leader>fu"] = {
@@ -947,10 +902,10 @@ if is_available("toggleterm.nvim") then
     "<cmd>ToggleTerm size=80 direction=vertical<cr>",
     desc = "Toggleterm vertical split",
   }
-  maps.n["<F7>"] = { "<cmd>ToggleTerm<cr>", desc = "terminal" }
-  maps.t["<F7>"] = maps.n["<F7>"]
-  maps.n["<C-'>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
-  maps.t["<C-'>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  maps.n["<C-`>"] = { "<cmd>ToggleTerm<cr>", desc = "terminal" }
+  maps.t["<C-`>"] = maps.n["<C-`>"]
+  maps.n["<C-'>"] = maps.n["<C-`>"] -- requires terminal that supports binding <C-'>
+  maps.t["<C-'>"] = maps.n["<C-`>"] -- requires terminal that supports binding <C-'>
 end
 
 -- extra - improved terminal navigation
@@ -1130,9 +1085,9 @@ maps.n["<leader>Te"] = {
 
 -- nvim-ufo [code folding] --------------------------------------------------
 if is_available("nvim-ufo") then
-  maps.n["zR"] =
+  maps.n["zO"] =
   { function() require("ufo").openAllFolds() end, desc = "Open all folds" }
-  maps.n["zM"] =
+  maps.n["zA"] =
   { function() require("ufo").closeAllFolds() end, desc = "Close all folds" }
   maps.n["zr"] = {
     function() require("ufo").openFoldsExceptKinds() end,

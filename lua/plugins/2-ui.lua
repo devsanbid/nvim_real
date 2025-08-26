@@ -35,201 +35,14 @@ return {
     event = "User LoadColorSchemes",
     opts = {
       dim_inactive = false,
+      transparent = true, -- Enable this to disable setting the background color
       styles = {
         comments = { italic = true },
         keywords = { italic = true },
+        sidebars = "transparent", -- style for sidebars, see below
+        floats = "transparent",   -- style for floating windows
       },
     }
-  },
-
-  --  astrotheme [theme]
-  --  https://github.com/AstroNvim/astrotheme
-  {
-    "AstroNvim/astrotheme",
-    event = "User LoadColorSchemes",
-    opts = {
-      palette = "astrodark",
-      plugins = { ["dashboard-nvim"] = true },
-    },
-  },
-
-  --  morta [theme]
-  --  https://github.com/ssstba/morta.nvim
-   {
-     "philosofonusus/morta.nvim",
-     event = "User LoadColorSchemes",
-     opts = {}
-   },
-
-  --  eldritch [theme]
-  --  https://github.com/eldritch-theme/eldritch.nvim
-   {
-     "eldritch-theme/eldritch.nvim",
-     event = "User LoadColorSchemes",
-     opts = {}
-   },
-
-  --  alpha-nvim [greeter]
-  --  https://github.com/goolord/alpha-nvim
-  {
-    "goolord/alpha-nvim",
-    cmd = "Alpha",
-    -- setup header and buttonts
-    opts = function()
-      local dashboard = require("alpha.themes.dashboard")
-
-      -- Header
-      -- dashboard.section.header.val = {
-      --   "                                                                     ",
-      --   "       ████ ██████           █████      ██                     ",
-      --   "      ███████████             █████                             ",
-      --   "      █████████ ███████████████████ ███   ███████████   ",
-      --   "     █████████  ███    █████████████ █████ ██████████████   ",
-      --   "    █████████ ██████████ █████████ █████ █████ ████ █████   ",
-      --   "  ███████████ ███    ███ █████████ █████ █████ ████ █████  ",
-      --   " ██████  █████████████████████ ████ █████ █████ ████ ██████ ",
-      -- }
-      -- dashboard.section.header.val = {
-      --   '                                        ▟▙            ',
-      --   '                                        ▝▘            ',
-      --   '██▃▅▇█▆▖  ▗▟████▙▖   ▄████▄   ██▄  ▄██  ██  ▗▟█▆▄▄▆█▙▖',
-      --   '██▛▔ ▝██  ██▄▄▄▄██  ██▛▔▔▜██  ▝██  ██▘  ██  ██▛▜██▛▜██',
-      --   '██    ██  ██▀▀▀▀▀▘  ██▖  ▗██   ▜█▙▟█▛   ██  ██  ██  ██',
-      --   '██    ██  ▜█▙▄▄▄▟▊  ▀██▙▟██▀   ▝████▘   ██  ██  ██  ██',
-      --   '▀▀    ▀▀   ▝▀▀▀▀▀     ▀▀▀▀       ▀▀     ▀▀  ▀▀  ▀▀  ▀▀',
-      -- }
-      -- dashboard.section.header.val = {
-      --   '                    ▟▙            ',
-      --   '                    ▝▘            ',
-      --   '██▃▅▇█▆▖  ██▄  ▄██  ██  ▗▟█▆▄▄▆█▙▖',
-      --   '██▛▔ ▝██  ▝██  ██▘  ██  ██▛▜██▛▜██',
-      --   '██    ██   ▜█▙▟█▛   ██  ██  ██  ██',
-      --   '██    ██   ▝████▘   ██  ██  ██  ██',
-      --   '▀▀    ▀▀     ▀▀     ▀▀  ▀▀  ▀▀  ▀▀',
-      -- }
-      -- Generated with https://www.fancytextpro.com/BigTextGenerator/Larry3D
-      -- dashboard.section.header.val = {
-      --   [[ __  __                  __  __                     ]],
-      --   [[/\ \/\ \                /\ \/\ \  __                ]],
-      --   [[\ \ `\\ \     __    ___ \ \ \ \ \/\_\    ___ ___    ]],
-      --   [[ \ \ , ` \  /'__`\ / __`\\ \ \ \ \/\ \ /' __` __`\  ]],
-      --   [[  \ \ \`\ \/\  __//\ \L\ \\ \ \_/ \ \ \/\ \/\ \/\ \ ]],
-      --   [[   \ \_\ \_\ \____\ \____/ \ `\___/\ \_\ \_\ \_\ \_\]],
-      --   [[    \/_/\/_/\/____/\/___/   `\/__/  \/_/\/_/\/_/\/_/]],
-      -- }
-      --  dashboard.section.header.val = {
-      --   '                                                     ',
-      --   '  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ',
-      --   '  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ',
-      --   '  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
-      --   '  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
-      --   '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
-      --   '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
-      --   '                                                     ',
-      -- }
-      -- dashboard.section.header.val = {
-      --   [[                __                ]],
-      --   [[  ___   __  __ /\_\    ___ ___    ]],
-      --   [[/' _ `\/\ \/\ \\/\ \ /' __` __`\  ]],
-      --   [[/\ \/\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-      --   [[\ \_\ \_\ \___/  \ \_\ \_\ \_\ \_\]],
-      --   [[ \/_/\/_/\/__/    \/_/\/_/\/_/\/_/]],
-      -- }
-
-      if is_android then
-        dashboard.section.header.val = {
-          [[         __                ]],
-          [[ __  __ /\_\    ___ ___    ]],
-          [[/\ \/\ \\/\ \ /' __` __`\  ]],
-          [[\ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-          [[ \ \___/  \ \_\ \_\ \_\ \_\]],
-          [[  \/__/    \/_/\/_/\/_/\/_/]],
-        }
-      else
-        dashboard.section.header.val = {
-          [[888b      88                                                           88]],
-          [[8888b     88                                                           88]],
-          [[88 `8b    88                                                           88]],
-          [[88  `8b   88   ,adPPYba,   8b,dPPYba,  88,dPYba,,adPYba,   ,adPPYYba,  88]],
-          [[88   `8b  88  a8"     "8a  88P'   "Y8  88P'   "88"    "8a  ""     `Y8  88]],
-          [[88    `8b 88  8b       d8  88          88      88      88  ,adPPPPP88  88]],
-          [[88     `8888  "8a,   ,a8"  88          88      88      88  88,    ,88  88]],
-          [[88      `888   `"YbbdP"'   88          88      88      88  `"8bbdP"Y8  88]],
-          [[                                    __                ]],
-          [[                      ___   __  __ /\_\    ___ ___    ]],
-          [[                    /' _ `\/\ \/\ \\/\ \ /' __` __`\  ]],
-          [[                    /\ \/\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-          [[                    \ \_\ \_\ \___/  \ \_\ \_\ \_\ \_\]],
-          [[                     \/_/\/_/\/__/    \/_/\/_/\/_/\/_/]],
-        }
-      end
-
-
-      local get_icon = require("base.utils").get_icon
-
-      dashboard.section.header.opts.hl = "DashboardHeader"
-      vim.cmd("highlight DashboardHeader guifg=#F7778F")
-
-      -- If yazi is not installed, don't show the button.
-      local is_yazi_installed = vim.fn.executable("ya") == 1
-      local yazi_button = dashboard.button("r", get_icon("GreeterYazi") .. " Yazi", "<cmd>Yazi<CR>")
-      if not is_yazi_installed then yazi_button = nil end
-
-      -- Buttons
-      dashboard.section.buttons.val = {
-        dashboard.button("n",
-          get_icon("GreeterNew") .. " New",
-          "<cmd>ene<CR>"),
-        dashboard.button("e",
-          get_icon("GreeterRecent") .. " Recent  ",
-          "<cmd>Telescope oldfiles<CR>"),
-        yazi_button,
-        dashboard.button("s",
-          get_icon("GreeterSessions") .. " Sessions",
-          "<cmd>SessionManager! load_session<CR>"
-        ),
-        dashboard.button("p",
-          get_icon("GreeterProjects") .. " Projects",
-          "<cmd>Telescope projects<CR>"),
-        dashboard.button("", ""),
-        dashboard.button("q", "   Quit", "<cmd>exit<CR>"),
-      }
-
-      -- Vertical margins
-      dashboard.config.layout[1].val =
-          vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.10) } -- Above header
-      dashboard.config.layout[3].val =
-          vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.10) } -- Above buttons
-
-      -- Disable autocmd and return
-      dashboard.config.opts.noautocmd = true
-      return dashboard
-    end,
-    config = function(_, opts)
-      -- Footer
-      require("alpha").setup(opts.config)
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "LazyVimStarted",
-        desc = "Add Alpha dashboard footer",
-        once = true,
-        callback = function()
-          local  footer_icon = require("base.utils").get_icon("GreeterPlug")
-          local stats = require("lazy").stats()
-          stats.real_cputime = not is_windows
-          local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
-          opts.section.footer.val = {
-            " ",
-            " ",
-            " ",
-            "Loaded " .. stats.loaded .. " plugins " .. footer_icon .. " in " .. ms .. "ms",
-            ".............................",
-          }
-          opts.section.footer.opts.hl = "DashboardFooter"
-          vim.cmd("highlight DashboardFooter guifg=#D29B68")
-          pcall(vim.cmd.AlphaRedraw)
-        end,
-      })
-    end,
   },
 
   --  [notifications]
@@ -318,21 +131,11 @@ return {
   -- Collection of components to use on your heirline config.
   {
     "zeioth/heirline-components.nvim",
-    opts = function()
-      -- return different items depending of the value of `vim.g.fallback_icons_enabled`
-      local function get_icons()
-        if vim.g.fallback_icons_enabled then
-          return require("base.icons.fallback_icons")
-        else
-          return require("base.icons.icons")
-        end
-      end
 
-      -- opts
-      return {
-        icons = get_icons(),
-      }
-    end
+    -- opts
+    opts = {
+      colors = nil
+    }
   },
 
   --  heirline [ui components]
@@ -368,34 +171,10 @@ return {
         tabline = { -- UI upper bar
           lib.component.tabline_conditional_padding(),
           lib.component.tabline_buffers(),
-          lib.component.fill { hl = { bg = "tabline_bg" } },
+          lib.component.fill { hl = { bg = "none" } },
           lib.component.tabline_tabpages()
         },
-        winbar = { -- UI breadcrumbs bar
-          init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
-          fallthrough = false,
-          -- Winbar for terminal, neotree, and aerial.
-          {
-            condition = function() return not lib.condition.is_active() end,
-            {
-              lib.component.neotree(),
-              lib.component.compiler_play(),
-              lib.component.fill(),
-              lib.component.compiler_redo(),
-              lib.component.aerial(),
-            },
-          },
-          -- Regular winbar
-          {
-            lib.component.neotree(),
-            lib.component.compiler_play(),
-            lib.component.fill(),
-            lib.component.breadcrumbs(),
-            lib.component.fill(),
-            lib.component.compiler_redo(),
-            lib.component.aerial(),
-          }
-        },
+
         statuscolumn = { -- UI left column
           init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
           lib.component.foldcolumn(),
@@ -403,7 +182,7 @@ return {
           lib.component.signcolumn(),
         } or nil,
         statusline = { -- UI statusbar
-          hl = { fg = "fg", bg = "bg" },
+          hl = { fg = "fg", bg = "NONE" },
           lib.component.mode(),
           lib.component.git_branch(),
           lib.component.file_info(),
@@ -624,52 +403,6 @@ return {
     end,
   },
 
-  --  nvim-scrollbar [scrollbar]
-  --  https://github.com/petertriho/nvim-scrollbar
-  {
-    "petertriho/nvim-scrollbar",
-    event = "User BaseFile",
-    opts = {
-      handlers = {
-        gitsigns = true, -- gitsigns integration (display hunks)
-        ale = true,      -- lsp integration (display errors/warnings)
-        search = false,  -- hlslens integration (display search result)
-      },
-      excluded_filetypes = {
-        "cmp_docs",
-        "cmp_menu",
-        "noice",
-        "prompt",
-        "TelescopePrompt",
-        "alpha"
-      },
-    },
-  },
-
-  --  highlight-undo
-  --  https://github.com/tzachar/highlight-undo.nvim
-  --  This plugin only flases on undo/redo.
-  --  But we also have a autocmd to flash on yank.
-  {
-    "tzachar/highlight-undo.nvim",
-    event = "User BaseDefered",
-    opts = {
-      duration = 150,
-      hlgroup = "IncSearch",
-    },
-    config = function(_, opts)
-      require("highlight-undo").setup(opts)
-
-      -- Also flash on yank.
-      vim.api.nvim_create_autocmd("TextYankPost", {
-        desc = "Highlight yanked text",
-        pattern = "*",
-        callback = function()
-          (vim.hl or vim.highlight).on_yank()
-        end,
-      })
-    end,
-  },
 
   --  which-key.nvim [on-screen keybindings]
   --  https://github.com/folke/which-key.nvim

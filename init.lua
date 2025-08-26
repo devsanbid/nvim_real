@@ -1,7 +1,7 @@
 -- HELLO, welcome to NormalNvim!
 -- ---------------------------------------
 -- This is the entry point of your config.
--- ---------------------------------------
+-----------------------------------------
 
 local function load_source(source)
   local status_ok, error = pcall(require, source)

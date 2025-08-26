@@ -330,7 +330,7 @@ return {
   },
 
   --  garbage-day.nvim [lsp garbage collector]
-  --  https://github.com/zeioth/garbage-day.nvim
+
   {
     "zeioth/garbage-day.nvim",
     event = "User BaseFile",
