@@ -45,6 +45,23 @@ return {
     }
   },
 
+  {
+    {
+      "rose-pine/neovim",
+      name = "rose-pine",
+      opts = {
+        styles = {
+          bold = false,
+          italic = false,
+          transparency = true,
+        },
+      },
+      config = function()
+        vim.cmd("colorscheme rose-pine")
+      end
+    }
+  },
+
   --  [notifications]
   --  https://github.com/rcarriga/nvim-notify
   {

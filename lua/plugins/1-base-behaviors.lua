@@ -539,14 +539,14 @@ return {
 
   --  vim-matchup [improved % motion]
   --  https://github.com/andymass/vim-matchup
-  {
-    "andymass/vim-matchup",
-    event = "User BaseFile",
-    config = function()
-      vim.g.matchup_matchparen_deferred = 1   -- work async
-      vim.g.matchup_matchparen_offscreen = {} -- disable status bar icon
-    end,
-  },
+  -- {
+  --   "andymass/vim-matchup",
+  --   event = "User BaseFile",
+  --   config = function()
+  --     vim.g.matchup_matchparen_deferred = 1   -- work async
+  --     vim.g.matchup_matchparen_offscreen = {} -- disable status bar icon
+  --   end,
+  -- },
 
   --  hop.nvim [go to word visually]
   --  https://github.com/smoka7/hop.nvim

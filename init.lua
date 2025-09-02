@@ -39,6 +39,7 @@ local function load_colorscheme(colorscheme)
     end
 end
 
+
 -- Call the functions defined above.
 load_sources({
   "base.1-options",
@@ -47,3 +48,10 @@ load_sources({
 })
 load_colorscheme(vim.g.default_colorscheme)
 load_sources_async({ "base.4-mappings" })
+
+local hi =  vim.api.nvim_set_hl
+hi(0, "CursorLine", { bg = "none" })
+hi(0, "LspReferenceRead", { bg = "none" })
+hi(0, "LspReferenceWrite", { bg = "none" })
+hi(0, "LspReferenceText", { bg = "none" })
+hi(0,  "LspReferenceTarget", { bg = "none" })

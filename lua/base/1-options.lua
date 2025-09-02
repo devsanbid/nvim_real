@@ -1,5 +1,5 @@
 -- Theme
-vim.g.default_colorscheme = "tokyonight-night"
+vim.g.default_colorscheme = "rose-pine"
 
 -- Options --------------------------------------------------------------------
 vim.opt.breakindent = true                              -- Wrap indent to match  line start.
@@ -22,7 +22,7 @@ vim.opt.linebreak = true                                -- Wrap lines at 'breaka
 vim.opt.number = true                                   -- Show numberline.
 vim.opt.preserveindent = true                           -- Preserve indent structure as much as possible.
 vim.opt.pumheight = 10                                  -- Height of the pop up menu.
-vim.opt.relativenumber = false                          -- Show relative numberline.
+vim.opt.relativenumber = true                          -- Show relative numberline.
 vim.opt.shiftwidth = 2                                  -- Number of space inserted for indentation.
 vim.opt.showmode = false                                -- Disable showing modes in command line.
 vim.opt.showtabline = 2                                 -- always display tabline.
@@ -54,6 +54,7 @@ vim.opt.selection = "old"                                        -- Don't select
 
 vim.opt.signcolumn = "no"
 
+
 vim.opt.viewoptions:remove "curdir"                              -- Disable saving current directory with views.
 vim.opt.shortmess:append { s = true, I = true }                  -- Disable startup message.
 vim.opt.backspace:append { "nostop" }                            -- Don't stop backspace at insert.
@@ -61,6 +62,8 @@ vim.opt.diffopt:append { "algorithm:histogram", "linematch:60" } -- Enable linem
 
 local is_android = vim.fn.isdirectory('/data') == 1
 if is_android then vim.opt.mouse = "v" else vim.opt.mouse = "a" end -- Enable scroll for android
+
+vim.opt.mouse = ""
 
 -- Globals --------------------------------------------------------------------
 vim.g.mapleader = " "                                  -- Set leader key.
@@ -81,3 +84,7 @@ vim.g.lsp_signature_enabled = true     -- Enable automatically showing lsp help 
 vim.g.notifications_enabled = false    -- Enable notifications.
 vim.g.semantic_tokens_enabled = true   -- Enable lsp semantic tokens at start.
 vim.g.url_effect_enabled = true        -- Highlight URLs with an underline effect.
+
+
+
+
