@@ -55,3 +55,5 @@ hi(0, "LspReferenceRead", { bg = "none" })
 hi(0, "LspReferenceWrite", { bg = "none" })
 hi(0, "LspReferenceText", { bg = "none" })
 hi(0,  "LspReferenceTarget", { bg = "none" })
+
+require('lspconfig').jdtls.setup({})

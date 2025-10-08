@@ -547,10 +547,17 @@ if vim.fn.executable "gitui" == 1 then -- if gitui exists, show it
   }
 end
 
--- neotree
-if is_available("neo-tree.nvim") then
-  maps.n["<leader>e"] = { "<cmd>Neotree toggle<cr>", desc = "Neotree" }
-end
+maps.n["<leader>e"] = {
+  function()
+    local fyler = require("fyler")
+    if vim.bo.filetype == "Fyler" then
+      vim.cmd("q!")
+    else
+      fyler.open({ kind = "split_left_most" })
+    end
+  end,
+  desc = "Toggle Neotree"
+}
 
 -- session manager ---------------------------------------------------------
 if is_available("neovim-session-manager") then

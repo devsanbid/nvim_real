@@ -5,8 +5,7 @@ return {
       filetype = {
         java = {
           "cd $dir &&",
-          "javac $fileName &&",
-          "java $fileNameWithoutExt",
+          "java $fileName",
         },
         fish = "fish",
         bash = "bash",
